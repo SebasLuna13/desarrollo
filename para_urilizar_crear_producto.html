@@ -1,0 +1,42 @@
+    <div class="mb-2">
+        <div style="display: flex; align-items: center;">
+            <h6 class="text-muted font-weight-bold mr-2">Datos Representante Legal:</h6>
+            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#representante-legal-fields" aria-expanded="false" aria-controls="representante-legal-fields">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+    <div id="representante-legal-fields" class="collapse">
+        <div class="mb-2">
+            <div style="display: flex; align-items: center;">
+                <label class="form-label" style="color: #000000; flex: 1;">Representante Legal:</label>
+                <input type="text" class="form-control" name="representante_legal" placeholder="Ingresa el Nombre del representante legal" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" title="Ingrese una dirección de correo electrónico válida" minlength="11" maxlength="100" style="flex: 2;">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <div class="col-sm-6">
+                <label class="form-label" style="color: #000000;">Fecha de Cumpleaños:</label>
+                <input type="date" class="form-control" name="cumple_representante" min="1940-01-01" max="2006-12-31" required>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label" style="color: #000000;">Celular o Teléfono:</label>
+                <input type="text" class="form-control" name="celular_representante" placeholder="Ingrese el Numero de Celular" pattern="[0-9]+" minlength="7" maxlength="10">
+            </div>
+        </div>
+        <div class="mb-2">
+            <div style="display: flex; align-items: center;">
+                <label class="form-label" style="color: #000000; flex: 1;">Correo Electrónico:</label>
+                <input type="email" class="form-control" name="correo_representante" placeholder="Ingrese el Correo Electrónico" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" title="Ingrese una dirección de correo electrónico válida" minlength="11" maxlength="100" style="flex: 2;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#representante-legal-fields').on('shown.bs.collapse', function () {
+            $('.fa-chevron-down').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        });
+                                                        
+        $('#representante-legal-fields').on('hidden.bs.collapse', function () {
+            $('.fa-chevron-up').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        });
+    </script>
