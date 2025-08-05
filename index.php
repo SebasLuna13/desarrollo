@@ -12,7 +12,7 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
 
     if ($row) {
         $id_usuario = $row[0];
-        $rol = $row[1]; 
+        $rol = $row[2];
 
         $_SESSION['id_usuario'] = $id_usuario;
         $_SESSION['rol'] = $rol;
@@ -21,14 +21,17 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
             case 'pedido':
                 header("Location: inicio_pedido.php?id_usuario=$id_usuario");
                 exit();
-            case 'administrador': 
+            case 'administrador':
                 header("Location: inicio_administrador.php?id_usuario=$id_usuario");
                 exit();
-            case 'gerente': 
+            case 'gerente':
                 header("Location: inicio_gerente.php?id_usuario=$id_usuario");
                 exit();
-            case 'produccion': 
+            case 'produccion':
                 header("Location: inicio_produccion.php?id_usuario=$id_usuario");
+                exit();
+            case 'diseño':
+                header("Location: inicio_diseño.php?id_usuario=$id_usuario");
                 exit();
             default:
                 break;
@@ -41,16 +44,17 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/estilo.css">
@@ -58,12 +62,13 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
     <link rel="icon" type="image/png" href="img/Logo.png">
     <title>Unidotaciones</title>
 </head>
+
 <body>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000DD3;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="img/Logo.png" alt="Logo" width="80" height="50" class="rounded img-fluid d-inline-block align-text-top"> 
+                <img src="img/Logo.png" alt="Logo" width="80" height="50" class="rounded img-fluid d-inline-block align-text-top">
             </a>
         </div>
     </nav>
@@ -85,7 +90,7 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
                     <br>
                     <form method="post" name="Formulario">
                         <div class="mb-3">
-                            <label for="text" class="form-label">Ingresa tu usuario o correo electrónico</label>
+                            <label for="text" class="form-label">Ingresa tu usuario</label>
                             <input type="text" name="user" id="user" class="form-control" required>
                         </div>
                         <div class="mb-3">
@@ -105,8 +110,6 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
 </body>
+
 </html>
-
-
